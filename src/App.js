@@ -7,12 +7,12 @@ import Profile from './pages/Profile';
 import Header from './components/Header';
 
 // definimos un arreglo [] de diccionarios {} para simular la información de los usuarios de una API
-const USERS = [
+/*const USERS = [
   {id:1, fullName: "Sara Anderson", age: 38},
   {id:2, fullName: "John Perez", age: 35},
   {id:3, fullName: "Ruben Barraza ", age: 18},
   {id:4, fullName: "Lorena Lazos", age: 20}
-]
+]*/
 
 function App() {    // esta función maneja el ciclo de vida de la aplicación.
   
