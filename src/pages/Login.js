@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import Button from "../components/Button"
+import Input from "../components/Input"
 
 
 function Login(){
@@ -33,23 +34,24 @@ function Login(){
         <h1>LOGIN</h1>
         <form className="register-form" onSubmit={handleSubmit}>
             { submitted && valid ? <div className="success-message"> Success! Thank you for registering </div> : null }
-            <input
+            <Input
                 value={values.email}                // almacenamos el valor del input en values
                 onChange={handleEmailInputChange}   // updating de value with every key-stroke
                 className="form-field"
-                placeholder="Email"
+                label="Email"
                 name="email" />
             { submitted && !values.email ? <span>Please enter an email</span> : null }
-            <input
+            <Input
                 value={values.password}
                 onChange={handlePasswordInputChange}
                 className="form-field"
-                placeholder="Password"
+                label="Password"
                 name="password" />
             { submitted && !values.password ? <span>Please enter a pasword</span> : null }
-            <button
+            <Button
                 className="form-field"
-                type="submit"> Log In </button>
+                color={"success"}
+                type="submit"> Log In </Button>
         </form>
     </div>
     )

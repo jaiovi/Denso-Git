@@ -3,7 +3,7 @@ import Input from "../components/Input";
 import OffCanvas from "../components/OffCanvas";
 import React, {useRef} from "react";
 
-function Login()/*{
+function sebas_Login()/*{
     //const [username, setUsername] = useState()
     const iniciarSesion=() =>{
         console.log("Iniciando sesion")
@@ -35,4 +35,4 @@ function Login()/*{
     )
 }
 //
-export default Login
+export default sebas_Login
