@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react';
+import React, {useState } from 'react';
+import { Link } from "react-router-dom"
 import Button from "../components/Button"
 import Input from "../components/Input"
 
@@ -48,10 +49,10 @@ function Login(){
                 label="Password"
                 name="password" />
             { submitted && !values.password ? <span>Please enter a pasword</span> : null }
-            <Button
+            <Link to={"/home"}> <Button
                 className="form-field"
                 color={"success"}
-                type="submit"> Log In </Button>
+                type="submit"> Log In </Button> </Link>
         </form>
     </div>
     )
