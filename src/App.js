@@ -5,14 +5,15 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Header from './components/Header';
+import Signup from './pages/Signup';
 
 // definimos un arreglo [] de diccionarios {} para simular la información de los usuarios de una API
-const USERS = [
+/*const USERS = [
   {id:1, fullName: "Sara Anderson", age: 38},
   {id:2, fullName: "John Perez", age: 35},
   {id:3, fullName: "Ruben Barraza ", age: 18},
   {id:4, fullName: "Lorena Lazos", age: 20}
-]
+]*/
 
 function App() {    // esta función maneja el ciclo de vida de la aplicación.
   
@@ -29,6 +30,7 @@ function App() {    // esta función maneja el ciclo de vida de la aplicación.
           <Route path='/home' element={<Home/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/profile/:userId' element={<Profile/>} />
+          <Route path='/signup' element={<Signup/>} />
         </Routes>
       </BrowserRouter>
     </div>
