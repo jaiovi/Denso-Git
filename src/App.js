@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
-import Signup from './pages/Signup';
+
 import Profile from './pages/Profile';
 import Header from './components/Header';
 import Signup from './pages/Signup';
+
+import Footer from './components/Footer';
 
 // definimos un arreglo [] de diccionarios {} para simular la información de los usuarios de una API
 /*const USERS = [
@@ -30,10 +32,10 @@ function App() {    // esta función maneja el ciclo de vida de la aplicación.
           <Route path='' element={<Navigate to="/home" replace={true} />}/>    {/* la página default será Home, Navigate sirve para redireccionar */}
           <Route path='/home' element={<Home/>} />
           <Route path='/login' element={<Login/>} />
-          <Route path='/signup' element={<Signup/>} />
           <Route path='/profile/:userId' element={<Profile/>} />
           <Route path='/signup' element={<Signup/>} />
         </Routes>
+        <footer><Footer /></footer>
       </BrowserRouter>
     </div>
   );  
