@@ -1,6 +1,9 @@
 # Proyecto para Denso - Construccion de Software
 Codificado por:
-Jesús Sebastián Jaime Oviedo A01412442
+Jesús Sebastián Jaime Oviedo - A01412442
+Juan Daniel Rodríguez Oropeza - A01411625
+Rubén Barraza Maldonado - A01570838
+Carlos Alejandro Morales Leal - A00830435
 
 ## Tecnologias
 React App, Node JS
