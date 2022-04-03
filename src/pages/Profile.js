@@ -18,7 +18,7 @@ function Profile(){
 
     
     return(
-    <div className="container">
+    <div className="container m-4">
         <div className="row">
             <div className="col-sm">
                 <ResponsiveContainer width="100%" height="100%">
