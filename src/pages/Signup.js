@@ -40,7 +40,7 @@ function Signup()
             <Input label="Ingresa tu correo e-mail" ref={inputEmail} />
             <Input label="Ingresa tu contraseña" ref={inputPass} />
             <Input label="Ingresa de nuevo tu contraseña" ref={inputPass} />
-            <Button onClick={mostrar} color={"success"}>Mostrar input</Button>
+            <Button onClick={mostrar} color={"success"}>Finalizar Registro</Button>
         </div>
     )
 }
