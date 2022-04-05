@@ -1,40 +1,31 @@
+import React, {useRef, useState} from "react";
+import { Link } from "react-router-dom"
 import Button from "../components/Button";
 import Input from "../components/Input";
-import OffCanvas from "../components/OffCanvas";
-import React, {useRef} from "react";
 
 function Signup()
 {
     //modificar
-    const inputNombrePila = useRef();
-    const inputApellidoPat = useRef();
-    const inputApellidoMat = useRef();
-    const inputEdad = useRef();
-    const inputAlmaMater = useRef();
-    const inputSucursal = useRef();
-    const inputPuesto = useRef();
+    const inputName = useRef();
+    const inputLastName = useRef();
+    const inputRole = useRef();
+    const inputLocation = useRef();
     const inputEmail = useRef();
     const inputPass = useRef();
     const mostrar = () =>{
-        console.log("Nombre de Pila: ",inputNombrePila.current.getValue());
-        console.log("Apellido Paterno: ",inputApellidoPat.current.getValue());
-        console.log("Apellido Materno: ",inputApellidoMat.current.getValue());
-        console.log("Edad: ",inputEdad.current.getValue());
-        console.log("Alma Máter: ",inputAlmaMater.current.getValue());
-        console.log("Sucursal: ",inputSucursal.current.getValue());
-        console.log("Puesto: ",inputPuesto.current.getValue());
+        console.log("Nombre de Pila: ",inputName.current.getValue());
+        console.log("Apellidos: ",inputLastName.current.getValue());
+        console.log("Rol: ",inputRole.current.getValue());
+        console.log("Sucursal: ",inputLocation.current.getValue());
         console.log("e-mail: ",inputEmail.current.getValue());
         console.log("Contraseña: ",inputPass.current.getValue());
     }
 
     const [values, setValues] = useState({      // definimos un hook que nos permite usar estados
-        nombrePila: "",
-        apellidoPat: "",
-        apellidoMat: "",
-        edad: "",
-        almaMater: "",
-        sucursal: "",
-        puesto: "",
+        name: "",
+        lastName: "",
+        role: "",
+        location: "",
         email: "",                              // para cada valor establecemos un estado default
         password: ""
     })
@@ -42,32 +33,24 @@ function Signup()
     const [submitted, setSubmitted] = useState(false);
     const [valid, setValid] = useState(false);
 
-    const handleNombrePilaInputChange = (event) => {
-        setValues({...values, nombrePila: event.target.value})       // the ... copies the values of "values"
+    const handleNameInputChange = (event) => {
+        setValues({...values, name: event.target.value})       // the ... copies the values of "values"
     }
 
-    const handleApellidoPatInputChange = (event) => {
-        setValues({...values, apellidoPat: event.target.value})       // the ... copies the values of "values"
+    const handleLastNameInputChange = (event) => {
+        setValues({...values, lastName: event.target.value})       // the ... copies the values of "values"
     }
 
-    const handleApellidoMatInputChange = (event) => {
-        setValues({...values, apellidoMat: event.target.value})       // the ... copies the values of "values"
+    const handleRoleInputChange = (event) => {
+        setValues({...values, role: event.target.value})       // the ... copies the values of "values"
     }
 
-    const handleEdadInputChange = (event) => {
-        setValues({...values, edad: event.target.value})       // the ... copies the values of "values"
+    const handleLocationInputChange = (event) => {
+        setValues({...values, location: event.target.value})       // the ... copies the values of "values"
     }
 
-    const handleAlmaMaterInputChange = (event) => {
-        setValues({...values, almaMater: event.target.value})       // the ... copies the values of "values"
-    }
-
-    const handleSucursalInputChange = (event) => {
-        setValues({...values, sucursal: event.target.value})       // the ... copies the values of "values"
-    }
-
-    const handlePuestoInputChange = (event) => {
-        setValues({...values, puesto: event.target.value})       // the ... copies the values of "values"
+    const handleEmailInputChange = (event) => {
+        setValues({...values, location: event.target.value})       // the ... copies the values of "values"
     }
 
     const handlePasswordInputChange = (event) => {
@@ -76,27 +59,59 @@ function Signup()
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (values.email && values.password) {
+        if (values.name && values.lastName && values.role && values.location && values.email && values.password) {
             setValid(true);
         }
         setSubmitted(true);
     }
 
     return (
-        <div>
-        
+        <div className="form-container">
             <h1>Crea tu cuenta</h1>
-            <Input label="Ingresa tu nombre de pila *" ref={inputNombrePila} />
-            <Input label="Ingresa tu nombre de apellido paterno *" ref={inputApellidoPat} />
-            <Input label="Ingresa tu nombre de apellido materno *" ref={inputApellidoMat} />
-            <Input label="Ingresa tu edad *" ref={inputEdad} />
-            <Input label="Ingresa tu Alma Máter *" ref={inputAlmaMater} />
-            <Input label="Ingresa la sucursal a la que estás aplicando *" ref={inputSucursal} />
-            <Input label="Ingresa el puesto al que estás aplicando *" ref={inputPuesto} />
-            <Input label="Ingresa tu correo e-mail *" ref={inputEmail} />
-            <Input label="Ingresa tu contraseña *" ref={inputPass} />
-            <Input label="Ingresa de nuevo tu contraseña *" ref={inputPass} />
-            <Button onClick={mostrar} color={"success"}>Finalizar Registro</Button>
+            <form className="register-form" onSubmit={handleSubmit}>
+                {submitted && valid ? <div className="success-message"> Success! Thank you for registering </div> : null}
+                <Input
+                    value = {values.name}
+                    onChange = {handleNameInputChange}
+                    className = "form-field"
+                    label="Ingresa tu nombre de pila *" ref={inputName} />
+                {submitted && !values.email ? <span>Please enter an email</span> : null}
+                <Input
+                    value = {values.lastName}
+                    onChange = {handleLastNameInputChange}
+                    className = "form-field"
+                    label="Ingresa tu(s) apellido(s) *" ref={inputLastName} />
+                <Input
+                    value = {values.role}
+                    onChange = {handleRoleInputChange}
+                    className = "form-field"
+                    label="Ingresa tu rol en Denso *" ref={inputRole} />
+                <Input
+                    value = {values.location}
+                    onChange = {handleLocationInputChange}
+                    className = "form-field"
+                    label="Ingresa la sucursal a la que perteneces *" ref={inputLocation} />
+                <Input
+                    value = {values.email}
+                    onChange = {handleEmailInputChange}
+                    className = "form-field"
+                    label="Ingresa tu correo e-mail *" ref={inputEmail} />
+                <Input
+                    value = {values.password}
+                    onChange = {handlePasswordInputChange}
+                    className = "form-field"
+                    label="Ingresa tu contraseña *" ref={inputPass} />
+                <Input
+                    value = {values.password}
+                    onChange = {handlePasswordInputChange}
+                    className = "form-field"
+                    label="Ingresa de nuevo tu contraseña *" ref={inputPass} />
+                <Link to={"/home"}> <Button
+                    className="form-field"
+                    onClick={mostrar}
+                    color={"success"}
+                    type="submit" >Finalizar Registro</Button> </Link>
+            </form>
         </div>
     )
 }
