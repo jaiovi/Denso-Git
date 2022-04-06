@@ -11,6 +11,7 @@ function Profile(){
     const [show, toggle] = useState(false);
     const functionToggle = () =>{
         toggle(!show)
+        console.log(show)
     }
 
 
