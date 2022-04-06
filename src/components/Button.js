@@ -6,12 +6,12 @@ function Button(props){
     const onUserClick = () => {
         console.log("Hiciste click en el botón")
 
-        props.onClick && props.onUserClick()
+        props.onClick && props.onClick()
     }
 
     return (
         <React.Fragment>
-            <button className={"shadow-lg rounded-0 btn btn-" + props.color}>
+            <button onClick={onUserClick} className={"shadow-lg rounded-0 btn btn-" + props.color}>
                 {props.children}
             </button>
         </React.Fragment>
