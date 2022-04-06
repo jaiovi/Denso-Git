@@ -15,7 +15,7 @@ function InputElem(props, ref){
     return(
         <React.Fragment>
         <div class="form-floating mb-3">
-            <input onChange={onChange} className="form-control" type="email"/>
+            <input onChange={onChange} className="form-control" type={props.type}/>
             <label for="floatingInput">{props.label}</label>
         </div>
         </React.Fragment>
