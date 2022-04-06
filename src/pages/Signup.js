@@ -3,6 +3,10 @@ import { API } from "../api/API"
 import Button from "../components/Button";
 import Input from "../components/Input";
 
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+
 function Signup()
 {
     //modificar
@@ -35,6 +39,10 @@ function Signup()
         password: "",
         validate_password: ""
     })
+
+    const Example = () => {
+        const [startDate, setStartDate] = useState(new Date());
+    }
 
     const [submitted, setSubmitted] = useState(false);
     const [valid, setValid] = useState(false);
@@ -154,9 +162,13 @@ function Signup()
                 <Link to={"/login"}> <Button
                     className="form-field"
                     color={"success"}
-                    onClick={handleSubmit}
-                    type="submit" >Finalizar Registro</Button>
-            </div>
+                    type="submit" >Finalizar Registro</Button> </Link>
+                <DatePicker
+                    selected={date}
+                    onSelect={handleDateSelect} //cuando el día es clickeado 
+                    // only when value has changed
+                    onChange={handleDateChange} /> 
+            </form>
         </div>
     )
 }
