@@ -3,9 +3,9 @@ import { Link } from "react-router-dom"
 import Button from "../components/Button";
 import Input from "../components/Input";
 
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 
-import "react-datepicker/dist/react-datepicker.css";
+// import "react-datepicker/dist/react-datepicker.css";
 
 function Signup()
 {
@@ -18,6 +18,7 @@ function Signup()
     const inputEmail = useRef();
     const inputPass = useRef();
     const inputPass2 = useRef();
+    // const [selectedDate, setSelectedDate] = useState(null);
     const mostrar = () =>{
         console.log("Nombre de Pila: ",inputName.current.getValue());
         console.log("Apellidos: ",inputLastName.current.getValue());
@@ -40,9 +41,7 @@ function Signup()
         validate_password: ""
     })
 
-    const Example = () => {
-        const [startDate, setStartDate] = useState(new Date());
-    }
+     
 
     const [submitted, setSubmitted] = useState(false);
     const [valid, setValid] = useState(false);
@@ -142,11 +141,9 @@ function Signup()
                     onClick={mostrar}
                     color={"success"}
                     type="submit" >Finalizar Registro</Button> </Link>
-                <DatePicker
-                    selected={date}
-                    onSelect={handleDateSelect} //cuando el día es clickeado 
-                    // only when value has changed
-                    onChange={handleDateChange} /> 
+                {/* <DatePicker */}
+                    {/* selected={selectedDate} */}
+                    {/* onChange={date => setSelectedDate(date)} />  */}
             </form>
         </div>
     )
