@@ -1,5 +1,5 @@
 import React, {useRef, useState} from "react";
-import { Link } from "react-router-dom"
+import { API } from "../api/API"
 import Button from "../components/Button";
 import Input from "../components/Input";
 
@@ -10,6 +10,7 @@ import Input from "../components/Input";
 function Signup()
 {
     //modificar
+
     const inputName = useRef();
     const inputLastName = useRef();
     const inputRole = useRef();
@@ -38,7 +39,8 @@ function Signup()
         birthDate: "",
         email: "",                              // para cada valor establecemos un estado default
         password: "",
-        validate_password: ""
+        password2: ""
+
     })
 
      
@@ -79,6 +81,27 @@ function Signup()
     }
 
     const handleSubmit = (event) => {
+
+        let data = {
+            name:values.name,
+            lastName:values.lastName,
+            role:values.role,
+            location:values.location,
+            email:values.email,                              // para cada valor establecemos un estado default
+            password:values.password,
+            password2:values.password2
+        }
+
+        if ( values.password == values.password2 ){
+
+            API.post("/user", data, (response)=>{             // la dirección manda a la función "login" de user en el API
+                console.log(response)
+        
+            }, (error) => {
+                console.log(error)
+            })
+        }
+
         event.preventDefault();
         if (values.name && values.lastName && values.role && values.location && values.birthDate && values.email && values.password) {
             setValid(true);
@@ -89,29 +112,29 @@ function Signup()
     return (
         <div className="form-container">
             <h1>Crea tu cuenta</h1>
-            <form className="register-form" onSubmit={handleSubmit}>
+            <div className="register-form">
                 {submitted && valid ? <div className="success-message"> Success! Thank you for registering </div> : null}
                 <Input
                     value = {values.name}
                     onChange = {handleNameInputChange}
                     className = "form-field"
-                    label="Ingresa tu nombre de pila *" ref={inputName} />
+                    label="Ingresa tu nombre de pila *" />
                 {submitted && !values.email ? <span>Please enter an email</span> : null}
                 <Input
                     value = {values.lastName}
                     onChange = {handleLastNameInputChange}
                     className = "form-field"
-                    label="Ingresa tu(s) apellido(s) *" ref={inputLastName} />
+                    label="Ingresa tu(s) apellido(s) *" />
                 <Input
                     value = {values.role}
                     onChange = {handleRoleInputChange}
                     className = "form-field"
-                    label="Ingresa tu rol en Denso *" ref={inputRole} />
+                    label="Ingresa tu rol en Denso *" />
                 <Input
                     value = {values.location}
                     onChange = {handleLocationInputChange}
                     className = "form-field"
-                    label="Ingresa la sucursal a la que perteneces *" ref={inputLocation} />
+                    label="Ingresa la sucursal a la que perteneces *" />
                 <Input
                     value = {values.birthDate}
                     onChange = {handleBirthDateInputChange}
@@ -123,28 +146,27 @@ function Signup()
                     value = {values.email}
                     onChange = {handleEmailInputChange}
                     className = "form-field"
-                    label="Ingresa tu correo e-mail *" ref={inputEmail} />
+                    type="email"
+                    label="Ingresa tu correo e-mail *" />
                 <Input
                     value = {values.password}
                     onChange = {handlePasswordInputChange}
                     className = "form-field"
-                    type = "password"
-                    label="Ingresa tu contraseña *" ref={inputPass} />
+
+                    type="password"
+                    label="Ingresa tu contraseña *" />
                 <Input
-                    value = {values.validate_password}
-                    onChange = {handlePassword2InputChange}
+                    value = {values.password2}
+                    onChange = {handlePasswordInputChange}
                     className = "form-field"
-                    type = "password"
-                    label="Ingresa de nuevo tu contraseña *" ref={inputPass2} />
-                <Link to={"/login"}> <Button
+                    type="password"
+                    label="Ingresa de nuevo tu contraseña *" />
+                <Button
                     className="form-field"
-                    onClick={mostrar}
                     color={"success"}
-                    type="submit" >Finalizar Registro</Button> </Link>
-                {/* <DatePicker */}
-                    {/* selected={selectedDate} */}
-                    {/* onChange={date => setSelectedDate(date)} />  */}
-            </form>
+                    onClick={handleSubmit}
+                    type="submit" >Finalizar Registro</Button>
+            </div>
         </div>
     )
 }
