@@ -49,35 +49,36 @@ function Signup()
     const [valid, setValid] = useState(false);
 
     const handleNameInputChange = (event) => {
-        setValues({...values, name: event.target.value})       // the ... copies the values of "values"
+        console.log(event)
+        setValues(JSON.parse(JSON.stringify({...values, name: event})))       // the ... copies the values of "values"
     }
 
-    const handleLastNameInputChange = (event) => {
-        setValues({...values, lastName: event.target.value})       // the ... copies the values of "values"
+    const handleLastNameInputChange = (value) => {
+        setValues({...values, lastName: value})       // the ... copies the values of "values"
     }
 
-    const handleRoleInputChange = (event) => {
-        setValues({...values, role: event.target.value})       // the ... copies the values of "values"
+    const handleRoleInputChange = (value) => {
+        setValues({...values, role: value})       // the ... copies the values of "values"
     }
 
-    const handleLocationInputChange = (event) => {
-        setValues({...values, location: event.target.value})       // the ... copies the values of "values"
+    const handleLocationInputChange = (value) => {
+        setValues({...values, location: value})       // the ... copies the values of "values"
     }
 
-    const handleBirthDateInputChange = (event) => {
-        setValues({...values, birthDate: event.target.value})       // the ... copies the values of "values"
+    const handleBirthDateInputChange = (value) => {
+        setValues({...values, birthDate: value})       // the ... copies the values of "values"
     }
 
-    const handleEmailInputChange = (event) => {
-        setValues({...values, email: event.target.value})       // the ... copies the values of "values"
+    const handleEmailInputChange = (value) => {
+        setValues({...values, email: value})       // the ... copies the values of "values"
     }
 
-    const handlePasswordInputChange = (event) => {
-        setValues({...values, password: event.target.value})    // the ... copies the values of "values"
+    const handlePasswordInputChange = (value) => {
+        setValues({...values, password: value})    // the ... copies the values of "values"
     }
 
-    const handlePassword2InputChange = (event) => {
-        setValues({...values, validate_password: event.target.value})    // the ... copies the values of "values"
+    const handlePassword2InputChange = (value) => {
+        setValues({...values, validate_password: value})    // the ... copies the values of "values"
     }
 
     const handleSubmit = (event) => {
@@ -87,6 +88,7 @@ function Signup()
             lastName:values.lastName,
             role:values.role,
             location:values.location,
+            birthDate:values.birthDate,
             email:values.email,                              // para cada valor establecemos un estado default
             password:values.password,
             password2:values.password2

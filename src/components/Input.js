@@ -4,6 +4,7 @@ function InputElem(props, ref){
     const [value,setValue]=useState("");
     const onChange=(e)=>{
         setValue(e.target.value)//apunta
+        props.onChange(e.target.value)
     }
     const getValue=()=>{//siempre escucha el value que tenga en vigila onChange
         return value
