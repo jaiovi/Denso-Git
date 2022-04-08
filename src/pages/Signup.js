@@ -110,7 +110,7 @@ function Signup()
     }
 
     return (
-        <div className="form-container">
+        <div className="form-container m-4">
             <h1>Crea tu cuenta</h1>
             <div className="register-form">
                 {submitted && valid ? <div className="success-message"> Success! Thank you for registering </div> : null}

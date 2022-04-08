@@ -5,6 +5,8 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, /* RadarChar
 import Button from "../components/Button"
 import Input from "../components/Input"
 
+import { API } from "../api/API"
+
 function Profile(){
     const params = useParams(); //recuperar id del usuario
 
@@ -13,9 +15,15 @@ function Profile(){
         toggle(!show)
         console.log(show)
     }
+    const nomUsuario="";
+    
+    useEffect(()=>{
+        API.get("/user",(response)=>{
+            console.log(response)
+            nomUsuario=response.name;
+        })
 
-
-
+    },[])
     
     const data_examenes = [
         {name: 'Memoria', puntos:1000,},
