@@ -4,10 +4,10 @@ import React from "react";
 function VistaAdmin() {
     return(
         <>
-        <table>
+        <title>Bienvenido</title>
+        <table className="table table-striped">
             <thead>
                 <tr>
-                    <th>Candidato</th>
                     <th>Nombre</th>
                     <th>Rol.</th>
                     <th>Mem.</th>
@@ -17,6 +17,45 @@ function VistaAdmin() {
                     <th>Ate.</th>
                 </tr>
             </thead>
+<tbody>
+    <tr>
+        <td>Carlos Morales</td>
+        <td>Estudiante</td>
+        <td>??</td>
+        <td>??</td>
+        <td>??</td>
+        <td>??</td>
+        <td>??</td>
+    </tr>
+    <tr>
+        <td>Juan Daniel</td>
+        <td>Coordinador</td>
+        <td>??</td>
+        <td>??</td>
+        <td>??</td>
+        <td>??</td>
+        <td>??</td>
+    </tr>
+    <tr>
+        <td>Ruben</td>
+        <td>Director</td>
+        <td>??</td>
+        <td>??</td>
+        <td>??</td>
+        <td>??</td>
+        <td>??</td>
+    </tr>
+    <tr>
+        <td>Jesus Sebastian</td>
+        <td>Maestro</td>
+        <td>??</td>
+        <td>??</td>
+        <td>??</td>
+        <td>??</td>
+        <td>??</td>
+    </tr>
+    
+</tbody>
         </table>
         </>
     );
