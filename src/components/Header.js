@@ -10,6 +10,7 @@ function Header(){
         <Link to={"/profile/my-profile"}> <Button color={"primary"}> Profile </Button> </Link>
         <Link to={"/login"}> <Button color={"danger"} > LogOut </Button> </Link>
         <Link to={"/signup"}> <Button color={"primary"} > Sign Up </Button> </Link>
+        <Link to={"/VistaAdmin"}><Button color={"secondary"} > Vista Admin.</Button> </Link>
     </div>
     )
 }
