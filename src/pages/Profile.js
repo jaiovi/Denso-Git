@@ -1,5 +1,5 @@
 import { Link, useParams} from "react-router-dom"
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar} from 'recharts';
@@ -11,20 +11,35 @@ import { API } from "../api/API"
 function Profile(){
     const params = useParams(); //recuperar id del usuario
 
+    const [data, setData] = useState();
+    const eachData = {};
+    //const { data } = this.state;
+
     const [show, toggle] = useState(false);
     const functionToggle = () =>{
         toggle(!show)
         console.log(show)
     }
+
     const nomUsuario="";
-    
     useEffect(()=>{
         API.get("/user",(response)=>{
             console.log(response)
             nomUsuario=response.name;
         })
 
-    },[])
+    },[]);
+    const nombre =  useRef()
+    //const [name, setName] = useState(null);
+    useEffect(()=>{
+        API.get("/candidato/2",(response)=>{
+            setData(response);
+            eachData=response;
+            console.log(eachData);
+
+            //nombre.current.value = response.data.name + " " + response.data.last_name;
+        })
+    },[]);
     
     const data_examenes = [
         {seccionPsico: 'Memoria', puntos:1000,},
@@ -38,17 +53,7 @@ function Profile(){
         {minijuego: 'Chdededeido', score:1200},
         {minijuego: 'Re32r32Chido', score:1200},
     ];
-    const datitos = [
-        { name: 'A', x: 21 },
-        { name: 'B', x: 22 },
-        { name: 'C', x: -32 },
-        { name: 'D', x: -14 },
-        { name: 'E', x: -51 },
-        { name: 'F', x: 16 },
-        { name: 'G', x: 7 },
-        { name: 'H', x: -8 },
-        { name: 'I', x: 9 },
-    ];
+
     
     return(
     <div className="container m-4 mx-auto">
@@ -67,12 +72,16 @@ function Profile(){
                 
                 </ResponsiveContainer>
             </div>
+            
             <div className={"col-sm"}>
-                <h1>Profile de {params.userId}</h1>
-                <h3>Candidato a Ingeniero</h3>
-                <b>Cumpleaños el xxxx/xx/xx</b>
-                <p className="t-3">Para más información del reclutamiento, contacte con la página</p>
-                
+                data.map((eachData) => (
+                <div>
+                    <h1>Profile de {}</h1>
+                    <h3>Candidato a Ingeniero</h3>
+                    <b>Cumpleaños el xxxx/xx/xx</b>
+                    <p className="t-3">Para más información del reclutamiento, contacte con la página</p>
+                </div>
+                )
                 
                 <div>
                     
