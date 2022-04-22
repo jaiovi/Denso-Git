@@ -4,6 +4,7 @@ function InputElem(props, ref){
     const [value,setValue]=useState("");
     const onChange=(e)=>{
         setValue(e.target.value)//apunta
+        props.onChange(e.target.value)
     }
     const getValue=()=>{//siempre escucha el value que tenga en vigila onChange
         return value
@@ -15,7 +16,7 @@ function InputElem(props, ref){
     return(
         <React.Fragment>
         <div class="form-floating mb-3">
-            <input onChange={onChange} className="form-control" type="email"/>
+            <input onChange={onChange} className="form-control" type={props.type}/>
             <label for="floatingInput">{props.label}</label>
         </div>
         </React.Fragment>
