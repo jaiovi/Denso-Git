@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Header from './components/Header';
 import Signup from './pages/Signup';
+import VistaAdmin from './pages/VistaAdmin';
 
 import Footer from './components/Footer';
 
@@ -34,6 +35,7 @@ function App() {    // esta función maneja el ciclo de vida de la aplicación.
           <Route path='/login' element={<Login/>} />
           <Route path='/profile/:userId' element={<Profile/>} />
           <Route path='/signup' element={<Signup/>} />
+          <Route path='/VistaAdmin' element={<VistaAdmin/>} />
         </Routes>
         <footer><Footer /></footer>
       </BrowserRouter>
