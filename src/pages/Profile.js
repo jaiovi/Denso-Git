@@ -42,6 +42,7 @@ function Profile(){
         toggle(!show)
         console.log(show)
     }
+    const[show2, toggle2]=useState(false);
 
     const nomUsuario="";
     useEffect(()=>{
@@ -115,14 +116,21 @@ function Profile(){
         </div>
 
         <div id={"ConfirmaDelete"} className="d-flex justify-content-center">
-            <Button color={"warning"} onClick={functionToggle}>Eliminar Cuenta</Button>
+            <Button onClick={functionToggle}>Eliminar Cuenta</Button>
             {show ? <>
             <Button color={"danger"}>Confirmo eliminar todos mis datos</Button>
             </>:null
             }
             
         </div>
-        <i className="d-flex justify-content-center m-2">En caso que aparezca en blanco la página con alguna id: es un manager y no un candidato</i>
+        <div className="d-flex m-4 justify-content-center">
+            <Button color={"success"} onClick={ ()=>toggle2(!show)}>Reiniciar tests</Button>
+            {show2 ? <>
+            <Button color={"danger"}>Confirmo eliminar psicometrico+minijuegos</Button>
+            </>:null
+            }
+        </div>
+        <i className="d-flex justify-content-center m-2">En caso que aparezca página en blanco y está corriendo el server: la id es de un manager y no un candidato</i>
     </div>
     )
 }
