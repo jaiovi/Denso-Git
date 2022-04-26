@@ -7,12 +7,34 @@ import Button from "../components/Button"
 import Input from "../components/Input"
 
 import { API } from "../api/API"
+import { render } from "@testing-library/react";
 
 function Profile(){
+    var data_examenes = []
+    /*
+    [
+        {seccionPsico: 'Memoria', puntos:1000,},
+        {seccionPsico: 'Reflejos', puntos:500,},
+        {seccionPsico: 'Chido', puntos:1200},
+        {seccionPsico: 'ReChido', puntos:1200}
+    ];
+    */
+    var data_minijuegos = []
+    /*
+    [
+        {minijuego: 'Survive', score:1000,},
+        {minijuego: 'Refldededejos', score:500,},
+        {minijuego: 'Chdededeido', score:1200},
+        {minijuego: 'Re32r32Chido', score:1200},
+    ];
+    */
+
+    //INICIO CABECERA
     const params = useParams(); //recuperar id del usuario
 
-    const [data, setData] = useState();
-    const eachData = {};
+    const [data, setData] = useState(null);
+    const [dataPsico, setDataPsico] = useState(null);
+    const [dataMini, setDataMini] = useState(null);
     //const { data } = this.state;
 
     const [show, toggle] = useState(false);
@@ -20,6 +42,7 @@ function Profile(){
         toggle(!show)
         console.log(show)
     }
+    const[show2, toggle2]=useState(false);
 
     const nomUsuario="";
     useEffect(()=>{
@@ -27,34 +50,35 @@ function Profile(){
             console.log(response)
             nomUsuario=response.name;
         })
-
     },[]);
-    const nombre =  useRef()
-    //const [name, setName] = useState(null);
+    
     useEffect(()=>{
-        API.get("/candidato/2",(response)=>{
+        API.get("/candidato/"+params.userId,(response)=>{
             setData(response);
-            eachData=response;
-            console.log(eachData);
-
-            //nombre.current.value = response.data.name + " " + response.data.last_name;
+        })
+        API.get("/user/"+params.userId+"/minigame",(response)=>{
+            setDataMini(response);
+        })
+        API.get("/user/"+params.userId+"/psicometrico",(response)=>{
+            setDataPsico(response);
         })
     },[]);
     
-    const data_examenes = [
-        {seccionPsico: 'Memoria', puntos:1000,},
-        {seccionPsico: 'Reflejos', puntos:500,},
-        {seccionPsico: 'Chido', puntos:1200},
-        {seccionPsico: 'ReChido', puntos:1200}
-    ];
-    const data_minijuegos = [
-        {minijuego: 'Survive', score:1000,},
-        {minijuego: 'Refldededejos', score:500,},
-        {minijuego: 'Chdededeido', score:1200},
-        {minijuego: 'Re32r32Chido', score:1200},
-    ];
+    let content=null;
+    if(data && dataPsico && dataMini){
+        console.log(dataPsico.data);
+        console.log(dataMini.data);
+        content =
+        <div>
+            <h1>Profile de {data.data.name + " " + data.data.last_name}</h1>
+            <h3>Candidato a {data.data.role}</h3>
+            <b>Cumpleaños el {data.data.birthDate.slice(0,16)}</b>
+            <p className="t-3">Para más información del reclutamiento, contacte con la página</p>
+        </div>
+    }
 
-    
+    //render(){
+    //const { data } = this.state;
     return(
     <div className="container m-4 mx-auto">
         <div className="row">
@@ -62,7 +86,7 @@ function Profile(){
                 <ResponsiveContainer width="100%" height="100%">
                 
                     <RadarChart height={300} width={500} 
-                        outerRadius="80%" data={data_examenes}>
+                        outerRadius="80%" data={dataPsico}>
                         <PolarGrid />
                         <PolarAngleAxis dataKey="seccionPsico" />
                         <PolarRadiusAxis />
@@ -74,18 +98,10 @@ function Profile(){
             </div>
             
             <div className={"col-sm"}>
-                data.map((eachData) => (
-                <div>
-                    <h1>Profile de {}</h1>
-                    <h3>Candidato a Ingeniero</h3>
-                    <b>Cumpleaños el xxxx/xx/xx</b>
-                    <p className="t-3">Para más información del reclutamiento, contacte con la página</p>
-                </div>
-                )
-                
+                {content}
                 <div>
                     
-                    <BarChart width={500} height={300} data={data_minijuegos}>
+                    <BarChart width={500} height={300} data={dataMini}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="minijuego" />
                         <YAxis />
@@ -100,13 +116,21 @@ function Profile(){
         </div>
 
         <div id={"ConfirmaDelete"} className="d-flex justify-content-center">
-            <Button color={"warning"} onClick={functionToggle}>Eliminar Cuenta</Button>
+            <Button onClick={functionToggle}>Eliminar Cuenta</Button>
             {show ? <>
             <Button color={"danger"}>Confirmo eliminar todos mis datos</Button>
             </>:null
             }
-        </div>
             
+        </div>
+        <div className="d-flex m-4 justify-content-center">
+            <Button color={"success"} onClick={ ()=>toggle2(!show)}>Reiniciar tests</Button>
+            {show2 ? <>
+            <Button color={"danger"}>Confirmo eliminar psicometrico+minijuegos</Button>
+            </>:null
+            }
+        </div>
+        <i className="d-flex justify-content-center m-2">En caso que aparezca página en blanco y está corriendo el server: la id es de un manager y no un candidato</i>
     </div>
     )
 }
