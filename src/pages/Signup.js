@@ -40,6 +40,7 @@ function Signup(){
         API.post("/user", data,
         (response)=>{
             console.log(response) // Para ver la respuesta
+            setMessage(response.message)
         }, (error)=>{
             console.log(error) // Para ver el error
             // Cuando llega el error...

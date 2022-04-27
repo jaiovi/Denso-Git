@@ -15,11 +15,11 @@ function Login(){
     const [valid, setValid] = useState(false);
 
     const handleEmailInputChange = (event) => {
-        setValues({...values, email: event.target.value})       // the ... copies the values of "values"
+        setValues({...values, email:event})       // the ... copies the values of "values" -- Input.js:7
     }
 
     const handlePasswordInputChange = (event) => {
-        setValues({...values, password: event.target.value})    // the ... copies the values of "values"
+        setValues({...values, password: event})    // the ... copies the values of "values"
     }
 
     const handleSubmit = (event) => {
