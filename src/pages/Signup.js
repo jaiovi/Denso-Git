@@ -24,7 +24,7 @@ function Signup(){
             // Así se llama a la referencia. La referencia actual es la línea que está en return después del <h1>
             // Después se pueden mandar a llamar las funciones que se encuentran en este caso en Input.js, OJO, esas funciones debieron de haber sido regresadas la función de useImperativeHandle
             name: inputName.current.getValue(),
-            lastName: inputLastName.current.getValue(),
+            last_name: inputLastName.current.getValue(),
             role: inputRole.current.getValue(),
             location: inputLocation.current.getValue(),
             birthDate: inputBirthDate.current.getValue(),
