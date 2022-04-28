@@ -1,8 +1,30 @@
 import React from "react";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Dropdown, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap';
+///candidato/<mylocation>/<mydepartment>tabla
 
 function VistaAdmin() {
-    return(
+    const [dropdown, setDropdown]=useState(false);
+
+    const abrirCerrarDropdown=()=>{
+        setDropdown(!dropdown);
+    }
+    return (
+        <div className="VistaAdmin">
+            <Dropdown isOpen={dropdown} toggle={abrirCerrarDropdown}>   
+            <DropdownToggle>
+                Dropdown Ejemplo
+            </DropdownToggle>
+            <DropdownMenu>
+                <DropdownItem>Accion 1</DropdownItem>
+                <DropdownItem>Accion 2 </DropdownItem>
+                <DropdownItem>Accion 3</DropdownItem>
+                <DropdownItem>Accion 4</DropdownItem>
+            </DropdownMenu>
+
+            </Dropdown>
+        </div>
+    /*return(
         <>
         <title>Bienvenido</title>
         <table className="table table-striped">
@@ -57,7 +79,7 @@ function VistaAdmin() {
     
 </tbody>
         </table>
-        </>
+        </>*/
     );
 }
 
