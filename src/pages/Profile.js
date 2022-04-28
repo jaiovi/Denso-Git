@@ -10,24 +10,6 @@ import { API } from "../api/API"
 import { render } from "@testing-library/react";
 
 function Profile(){
-    var data_examenes = []
-    /*
-    [
-        {seccionPsico: 'Memoria', puntos:1000,},
-        {seccionPsico: 'Reflejos', puntos:500,},
-        {seccionPsico: 'Chido', puntos:1200},
-        {seccionPsico: 'ReChido', puntos:1200}
-    ];
-    */
-    var data_minijuegos = []
-    /*
-    [
-        {minijuego: 'Survive', score:1000,},
-        {minijuego: 'Refldededejos', score:500,},
-        {minijuego: 'Chdededeido', score:1200},
-        {minijuego: 'Re32r32Chido', score:1200},
-    ];
-    */
 
     //INICIO CABECERA
     const params = useParams(); //recuperar id del usuario
@@ -63,6 +45,25 @@ function Profile(){
             setDataPsico(response);
         })
     },[]);
+
+    //deletes
+    const [message, setMessage] = useState("");
+    const deleteUser = (event) => {
+        setMessage("");
+        API.get("/delete/user/"+params.userId,(response)=>{
+            setMessage(response.message);
+        }, (error)=>{
+            setMessage(error.message)
+        })
+    }
+    const deleteTests = (event) => {
+        setMessage("");
+        API.get("/delete/tests/"+params.userId,(response)=>{
+            setMessage(response.message);
+        }, (error)=>{
+            setMessage(error.message)
+        })
+    }
     
     let content=null;
     if(data && dataPsico && dataMini){
@@ -118,7 +119,7 @@ function Profile(){
         <div id={"ConfirmaDelete"} className="d-flex justify-content-center">
             <Button onClick={functionToggle}>Eliminar Cuenta</Button>
             {show ? <>
-            <Button color={"danger"}>Confirmo eliminar todos mis datos</Button>
+            <Button color={"danger"} onClick={deleteUser}>Confirmo eliminar todos mis datos</Button>
             </>:null
             }
             
@@ -130,7 +131,10 @@ function Profile(){
             </>:null
             }
         </div>
-        <i className="d-flex justify-content-center m-2">En caso que aparezca página en blanco y está corriendo el server: la id es de un manager y no un candidato</i>
+        <div className="text-danger">{message ? message:null}</div>
+        <p>
+            <i className="d-flex justify-content-center m-2">En caso que aparezca página en blanco y está corriendo el server: la id es de un manager y no un candidato</i>
+        </p>
     </div>
     )
 }

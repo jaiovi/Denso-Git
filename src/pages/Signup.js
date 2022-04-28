@@ -28,6 +28,7 @@ function Signup(){
             last_name: inputLastName.current.getValue(),
             role: inputRole.current.getValue(),
             location: inputLocation.current.getValue(),
+            department: "hola",
             birthDate: inputBirthDate.current.getValue(),
             email: inputEmail.current.getValue(),
             password: inputPassword.current.getValue(),
