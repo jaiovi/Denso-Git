@@ -1,4 +1,6 @@
 import React from "react";
+import * as bootstrap from "bootstrap"
+
 //candidato/<mylocation>/<mydepartment>tabla
 
 function VistaAdmin() {
