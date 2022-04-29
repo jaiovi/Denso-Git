@@ -1,16 +1,24 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Dropdown, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap';
+
 ///candidato/<mylocation>/<mydepartment>tabla
 
 function VistaAdmin() {
-    const [dropdown, setDropdown]=useState(false);
-
-    const abrirCerrarDropdown=()=>{
-        setDropdown(!dropdown);
-    }
+   
     return (
-        <div className="VistaAdmin">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown button
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                    </div>
+       
+       
+       
+        /*<div className="VistaAdmin">
             <Dropdown isOpen={dropdown} toggle={abrirCerrarDropdown}>   
             <DropdownToggle>
                 Dropdown Ejemplo
@@ -23,7 +31,7 @@ function VistaAdmin() {
             </DropdownMenu>
 
             </Dropdown>
-        </div>
+        </div>*/
     /*return(
         <>
         <title>Bienvenido</title>
