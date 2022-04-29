@@ -29,7 +29,7 @@ function Signup(){
             last_name: inputLastName.current.getValue(),
             role: inputRole.current.getValue(),
             location: inputLocation.current.getValue(),
-            department: inputDepartment.current.getValue(),
+
             birthDate: inputBirthDate.current.getValue(),
             email: inputEmail.current.getValue(),
             password: inputPassword.current.getValue(),
