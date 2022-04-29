@@ -1,6 +1,5 @@
 import React from "react";
-
-///candidato/<mylocation>/<mydepartment>tabla
+//candidato/<mylocation>/<mydepartment>tabla
 
 function VistaAdmin() {
    
@@ -13,29 +12,9 @@ function VistaAdmin() {
                     <li><a class="dropdown-item" href="#">Action</a></li>
                     <li><a class="dropdown-item" href="#">Another action</a></li>
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                    </div>
-       
-       
-       
-        /*<div className="VistaAdmin">
-            <Dropdown isOpen={dropdown} toggle={abrirCerrarDropdown}>   
-            <DropdownToggle>
-                Dropdown Ejemplo
-            </DropdownToggle>
-            <DropdownMenu>
-                <DropdownItem>Accion 1</DropdownItem>
-                <DropdownItem>Accion 2 </DropdownItem>
-                <DropdownItem>Accion 3</DropdownItem>
-                <DropdownItem>Accion 4</DropdownItem>
-            </DropdownMenu>
-
-            </Dropdown>
-        </div>*/
-    /*return(
-        <>
-        <title>Bienvenido</title>
-        <table className="table table-striped">
+                </ul>
+            <title>Bienvenido</title>  
+            <table className="table table-striped">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -87,7 +66,13 @@ function VistaAdmin() {
     
 </tbody>
         </table>
-        </>*/
+         
+        
+       
+       
+       
+        
+        </div>
     );
 }
 
