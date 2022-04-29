@@ -11,6 +11,8 @@ import VistaAdmin from './pages/VistaAdmin';
 
 import Footer from './components/Footer';
 
+import * as bootstrap from "bootstrap"
+
 // definimos un arreglo [] de diccionarios {} para simular la información de los usuarios de una API
 /*const USERS = [
   {id:1, fullName: "Sara Anderson", age: 38},
