@@ -18,10 +18,14 @@ function SelectElem(props, ref){
         <React.Fragment>
             <select onChange={onChange} className="form-select" aria-label="Default select example">
                 <option selected>{props.label}</option>
-                <option value="1">{props.item}</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+
+                {props.items.map((option)=>{
+                    return (
+                        <option value={option.value}>{option.label}</option>
+                    )
+                })}
             </select>
+            {/* <label for="floatingInput">{props.label}</label> */}
         </React.Fragment>
     )
 }
