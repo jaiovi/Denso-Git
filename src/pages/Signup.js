@@ -29,7 +29,7 @@ function Signup(){
             last_name: inputLastName.current.getValue(),
             role: inputRole.current.getValue(),
             location: inputLocation.current.getValue(),
-            department: "hola",
+            department: inputDepartment.current.getValue(),
             birthDate: inputBirthDate.current.getValue(),
             email: inputEmail.current.getValue(),
             password: inputPassword.current.getValue(),
@@ -63,10 +63,10 @@ function Signup(){
             <Input ref={inputRole} label={"Ingresa tu rol en Denso *"}/>
 
             <p className="fw-bold fst-italic">Selecciona la sucursal a la que perteneces *</p>
-            <Select ref={inputLocation} label={"Sucursal"} item={"Queso" "Hola"}/>
+            <Select ref={inputLocation} label={"Sucursal"} items={[{label: "Monterrey", value: "Monterrey"}, {label: "Apodaca", value: "Apodaca"}, {label: "Guadalajara", value: "Guadalajara"}, {label: "Ciudad de México", value: "Ciudad de México"}]}/>
             <br></br>
             <p className="fw-bold fst-italic">Selecciona el departamento al que perteneces *</p>
-            <Select ref={inputDepartment} label={"Departamento"} item={"Leche"}/>
+            <Select ref={inputDepartment} label={"Departamento"} items={[{label: "Mecatrónica", value: "Mecatrónica"}, {label: "Mecánica", value: "Mecánica"}, {label: "Electrónica", value: "Electrónica"}, {label: "Robótica", value: "Robótica"}, {label: "Industrial y Sistemas", value: "Industrial y Sistemas"}, {label: "Tecnologías de la Información", value: "Tecnologías de la Información"}, {label: "Administración", value: "Administración"}, {label: "Contaduría", value: "Contaduría"}, {label: "Recursos Humanos", value: "Recursos Humanos"}]}/>
             <br></br>
 
             <Input ref={inputBirthDate} label={"Ingresa tu fecha de nacimiento con el siguiente formato *"} type = "date"/>
