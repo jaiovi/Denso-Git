@@ -17,6 +17,7 @@
     "react-scripts": "5.0.0",
     "recharts": "^2.1.9",
     "sass": "^1.49.9",
+    "save": "^2.5.0",
     "terminal": "^0.1.4",
     "web-vitals": "^2.1.4"
   },
