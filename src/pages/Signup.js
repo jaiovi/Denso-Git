@@ -2,7 +2,7 @@ import React, {useRef, useState} from "react";
 import { API } from "../api/API"
 import Button from "../components/Button";
 import Input from "../components/Input";
-import Dropdown from "../components/Dropdown";
+import Select from "../components/Select";
 
 function Signup(){
 
@@ -12,6 +12,7 @@ function Signup(){
     const inputLastName = useRef();
     const inputRole = useRef();
     const inputLocation = useRef();
+    const inputDepartment = useRef();
     const inputBirthDate = useRef();
     const inputEmail = useRef();
     const inputPassword = useRef();
@@ -28,6 +29,7 @@ function Signup(){
             last_name: inputLastName.current.getValue(),
             role: inputRole.current.getValue(),
             location: inputLocation.current.getValue(),
+            department: inputDepartment.current.getValue(),
             birthDate: inputBirthDate.current.getValue(),
             email: inputEmail.current.getValue(),
             password: inputPassword.current.getValue(),
@@ -59,10 +61,14 @@ function Signup(){
             <Input ref={inputLastName} label={"Ingresa tu(s) apellido(s) *"}/>
 
             <Input ref={inputRole} label={"Ingresa tu rol en Denso *"}/>
-            {/* <Input ref={inputLocation} label={"Ingresa la sucursal a la que perteneces *"}/> */}
 
-            
-            <Dropdown ref={inputLocation} label={"Adios"} item={"Queso"}/>
+            <p className="fw-bold fst-italic">Selecciona la sucursal a la que perteneces *</p>
+            <Select ref={inputLocation} label={"Sucursal"} items={[{label: "Monterrey", value: "Monterrey"}, {label: "Apodaca", value: "Apodaca"}, {label: "Guadalajara", value: "Guadalajara"}, {label: "Ciudad de México", value: "Ciudad de México"}]}/>
+            <br></br>
+            <p className="fw-bold fst-italic">Selecciona el departamento al que perteneces *</p>
+            <Select ref={inputDepartment} label={"Departamento"} items={[{label: "Mecatrónica", value: "Mecatrónica"}, {label: "Mecánica", value: "Mecánica"}, {label: "Electrónica", value: "Electrónica"}, {label: "Robótica", value: "Robótica"}, {label: "Industrial y Sistemas", value: "Industrial y Sistemas"}, {label: "Tecnologías de la Información", value: "Tecnologías de la Información"}, {label: "Administración", value: "Administración"}, {label: "Contaduría", value: "Contaduría"}, {label: "Recursos Humanos", value: "Recursos Humanos"}]}/>
+            <br></br>
+
             <Input ref={inputBirthDate} label={"Ingresa tu fecha de nacimiento con el siguiente formato *"} type = "date"/>
             <Input ref={inputEmail} label={"Ingresa tu correo electrónico *"}/>
             <Input ref={inputPassword} label={"Ingresa tu contraseña *"} type={"password"}/>
