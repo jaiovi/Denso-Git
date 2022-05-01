@@ -26,17 +26,21 @@ function Profile(){
     }
     const[show2, toggle2]=useState(false);
 
-    const nomUsuario="";
+    /*//VALIDADOR
+    const validador="";
     useEffect(()=>{
         API.get("/user",(response)=>{
             console.log(response)
-            nomUsuario=response.name;
+            validador=response.manager_id;
         })
     },[]);
-    
+    */
+   
     useEffect(()=>{
         API.get("/candidato/"+params.userId,(response)=>{
             setData(response);
+            if(response.message=="Candidato no existe o es admin")
+                setMessage(response.message);
         })
         API.get("/user/"+params.userId+"/minigame",(response)=>{
             setDataMini(response);
@@ -64,16 +68,18 @@ function Profile(){
             setMessage(error.message)
         })
     }
-    
+
     let content=null;
-    if(data && dataPsico && dataMini){
-        console.log(dataPsico.data);
-        console.log(dataMini.data);
+    if(data){
+        console.log(data)
+        console.log(dataMini)
+        if(data.data.birthDate!=null)
+            data.data.birthDate = data.data.birthDate.slice(0,16);
         content =
         <div>
             <h1>Profile de {data.data.name + " " + data.data.last_name}</h1>
             <h3>Candidato a {data.data.role}</h3>
-            <b>Cumpleaños el {data.data.birthDate.slice(0,16)}</b>
+            <b>Cumpleaños el {data.data.birthDate}</b>
             <p className="t-3">Para más información del reclutamiento, contacte con la página</p>
         </div>
     }
