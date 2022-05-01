@@ -1,43 +1,45 @@
 import React from "react";
 import * as bootstrap from "bootstrap"
-
 import axios from 'axios'
 import CustomListDropDown from "../components/CustomListDropDown";
 
-export default function VistaAdmin() {
+/*export default function VistaAdmin() {
     return(
         <>
             <CustomListDropDown/>
         </>
     )
-}
+}*/
 
 //candidato/<mylocation>/<mydepartment>tabla
 
-/*function VistaAdmin() {
+function VistaAdmin() {
 
-    class VistaAdmin extends Component {
-        componentDidMount() {
-            axios
-                .get("candidato/<mylocation>/<mydepartment>tabla")
-                .then((response) => {
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        }
-    }
-   
     return (
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
+                Departamento
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><a class="dropdown-item" href="#">Mecatrónica</a></li>
+                    <li><a class="dropdown-item" href="#">Mecánica</a></li>
+                    <li><a class="dropdown-item" href="#">Electrónica</a></li>
+                    <li><a class="dropdown-item" href="#">Robótica</a></li>
+                    <li><a class="dropdown-item" href="#">Industrial y Sistemas</a></li>
+                    <li><a class="dropdown-item" href="#">Tecnologías de la Información</a></li>
+                    <li><a class="dropdown-item" href="#">Administración</a></li>
+                    <li><a class="dropdown-item" href="#">Contaduría</a></li>
+                    <li><a class="dropdown-item" href="#">Recursos Humanos</a></li>
                 </ul>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Sucursal</button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">Monterrey</a></li>
+                <li><a class="dropdown-item" href="#">Apodaca</a></li>
+                <li><a class="dropdown-item" href="#">Guadalajara</a></li>
+                <li><a class="dropdown-item" href="#">Ciudad de México</a></li>
+                
+
+            </ul>
             <title>Bienvenido</title>  
             <table className="table table-striped">
             <thead>
@@ -101,4 +103,4 @@ export default function VistaAdmin() {
     );
 }
 
-export default VistaAdmin*/
+export default VistaAdmin
