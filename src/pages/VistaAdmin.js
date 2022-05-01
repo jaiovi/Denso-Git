@@ -1,9 +1,32 @@
 import React from "react";
 import * as bootstrap from "bootstrap"
 
+import axios from 'axios'
+import CustomListDropDown from "../components/CustomListDropDown";
+
+export default function VistaAdmin() {
+    return(
+        <>
+            <CustomListDropDown/>
+        </>
+    )
+}
+
 //candidato/<mylocation>/<mydepartment>tabla
 
-function VistaAdmin() {
+/*function VistaAdmin() {
+
+    class VistaAdmin extends Component {
+        componentDidMount() {
+            axios
+                .get("candidato/<mylocation>/<mydepartment>tabla")
+                .then((response) => {
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+    }
    
     return (
         <div class="dropdown">
@@ -78,4 +101,4 @@ function VistaAdmin() {
     );
 }
 
-export default VistaAdmin
+export default VistaAdmin*/
