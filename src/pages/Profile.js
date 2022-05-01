@@ -26,14 +26,16 @@ function Profile(){
     }
     const[show2, toggle2]=useState(false);
 
-    const nomUsuario="";
+    /*//VALIDADOR
+    const validador="";
     useEffect(()=>{
         API.get("/user",(response)=>{
             console.log(response)
-            nomUsuario=response.name;
+            validador=response.manager_id;
         })
     },[]);
-    
+    */
+   
     useEffect(()=>{
         API.get("/candidato/"+params.userId,(response)=>{
             setData(response);
@@ -66,9 +68,7 @@ function Profile(){
             setMessage(error.message)
         })
     }
-    function isObjectEmpty(obj) {
-        return Object.keys(obj).length === 0;
-    }
+
     let content=null;
     if(data){
         console.log(data)
