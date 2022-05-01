@@ -37,7 +37,7 @@ export default class CustomListDropDown extends React.Component {
       <div className="container mt-4">
         <h2>Bienvenido!!</h2>
         <CustomDropdown
-          name={this.state.username}
+          name={this.state.Departamento}
           options={this.state.collection}
           onChange={this.onChange}
         />
