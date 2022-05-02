@@ -12,6 +12,8 @@ import CustomListDropDown from "../components/CustomListDropDown";
 }*/
 
 //candidato/<mylocation>/<mydepartment>tabla
+//Get o fetch no esta funcionando en el codigo
+//Dropdown funcionan pero nomas muestran las opciones, no muestran nada
 
 function VistaAdmin() {
 
@@ -37,20 +39,18 @@ function VistaAdmin() {
                 <li><a class="dropdown-item" href="#">Apodaca</a></li>
                 <li><a class="dropdown-item" href="#">Guadalajara</a></li>
                 <li><a class="dropdown-item" href="#">Ciudad de México</a></li>
-                
-
-            </ul>
-            <title>Bienvenido</title>  
+                </ul>
+            <title>candidato</title>
             <table className="table table-striped">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Rol.</th>
-                    <th>Mem.</th>
-                    <th>Per.</th>
-                    <th>Coor.</th>
-                    <th>Raz.</th>
-                    <th>Ate.</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Rol.</th>
+                    <th scope="col">Mem.</th>
+                    <th scope="col">Per.</th>
+                    <th scope="col">Coor.</th>
+                    <th scope="col">Raz.</th>
+                    <th scope="col">Ate.</th>
                 </tr>
             </thead>
 <tbody>
