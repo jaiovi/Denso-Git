@@ -133,7 +133,7 @@ function Profile(){
         <div className="d-flex m-4 justify-content-center">
             <Button color={"success"} onClick={ ()=>toggle2(!show)}>Reiniciar tests</Button>
             {show2 ? <>
-            <Button color={"danger"}>Confirmo eliminar psicometrico+minijuegos</Button>
+            <Button color={"danger"} onClick={deleteTests}>Confirmo eliminar psicometrico+minijuegos</Button>
             </>:null
             }
         </div>
