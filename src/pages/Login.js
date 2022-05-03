@@ -5,6 +5,7 @@ import Input from "../components/Input"
 
 
 function Login(){
+
     const [message, setMessage] = useState(null);
 
     const [values, setValues] = useState({      // definimos un hook que nos permite usar estados
@@ -33,7 +34,7 @@ function Login(){
         API.post("/user/login", data, (response)=>{             // la dirección manda a la función "login" de user en el API
             console.log(response)
             localStorage.setItem("token", response.token)
-            setMessage("Login exitoso");
+            setMessage(response.message);
         }, (error) => {
             console.log(error);
             setMessage(error.message);
@@ -73,9 +74,6 @@ function Login(){
                 onClick={handleSubmit}
                 type="submit"> Log In </Button>
             <div className="text-danger">{message ? message:null}</div>
-        </div>
-        <div className="d-flex justify-content-center m-4">
-            <i>Para cerrar sesion</i>
         </div>
     </div>
     )
