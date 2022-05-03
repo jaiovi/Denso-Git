@@ -27,7 +27,7 @@ function VistaAdmin() {
 
     const [message, setMessage] = useState("");
     const [data, setData] = useState([]); //info que te entrega la API
-    const [dataKPI, setDataKPI] = useState(null);
+    const [dataKPI, setDataKPI] = useState([]);
 
     const consultarTabla = (event) => {
         API.get("/candidato/" + inputLocation.current.getValue() + "/" + inputDepartment.current.getValue() + "/tabla",(response)=>{ // TODO: Corregir y pregunta al profe
