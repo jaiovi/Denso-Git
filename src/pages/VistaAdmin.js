@@ -73,7 +73,6 @@ function VistaAdmin() {
                     <td> {getScore(info.partidas, "Simon Dice")} </td>
                     <td> {getScore(info.partidas, "Pong")} </td>
 
-                    <td>{info.aplicantes}</td>
                     <td>{info.code}</td>
 
                     <td><Link target={"_blank"} to={"/profile/"+info.user_id} >Ir a perfil</Link></td>
@@ -102,7 +101,6 @@ function VistaAdmin() {
                     <th scope="col">Percepción</th>
                     <th scope="col">Memoria</th>
                     <th scope="col">Atención</th>
-                    <th scope="col">MANAGER</th>
                     <th scope="col">CODIGO</th>
                     <th scope="col">LINK</th>
                 </tr>
