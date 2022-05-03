@@ -52,7 +52,7 @@ function Signup(){
     }
 
     return (
-        <div className="container">
+        <div className="container m-4">
 
             <h1>Signup</h1>
 
