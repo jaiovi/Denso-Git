@@ -60,6 +60,13 @@ function VistaAdmin() {
         return "N/A"
       
     }
+    let contentKPI=null;
+    if(dataKPI){
+        contentKPI=
+        <div>
+        Media Psicometrico: <b className="x-5">{dataKPI.media_psicometrico}</b> Media videojuego: <b className="x-5">{dataKPI.media_videojuego}</b> Moda Rol: <b className="x-5">{dataKPI.moda_carrera}</b>
+        </div>
+    }
     const DisplayData=data.map(
         (info)=>{
             return(
@@ -89,6 +96,7 @@ function VistaAdmin() {
             <div className="mx-2"><Button onClick={consultarTabla} color={"success"}>Consultar</Button></div>
 
         </div>
+        {contentKPI}
         
         <title>candidato</title>
             <table className="table table-striped">
