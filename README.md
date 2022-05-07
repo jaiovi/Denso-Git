@@ -12,3 +12,5 @@ React App, Node JS
 Clone el repositorio y haga "npm install" para que tenga todas las librerias
 A partir de ahi, "npm start"
 "npm run build" nos permite construir la aplicacion para entregable final
+
+Entre a http://localhost:3000/signup para crear su cuenta: recuerda que para ser manager la terminacion del email debe de ser @na.denso.com
