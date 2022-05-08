@@ -37,7 +37,7 @@ function Profile(){
     */
    
     useEffect(()=>{
-        API.get("/candidato/"+params.userId,(response)=>{ 
+        API.get("/candidato/"+params.userId,(response)=>{
             setData(response);
             if(response.message=="Candidato no existe o es admin")
                 setMessage(response.message);
