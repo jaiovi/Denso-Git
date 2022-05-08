@@ -101,7 +101,7 @@ function VistaAdmin() {
                     <th scope="col">LINK</th>
                 </tr>
             </thead>
-<tbody> {/* Codigo del cuerpo de la tabla*/}
+<tbody> {/* El cuerpo de la tabla*/}
     {DisplayData} {/* Muestra los datos dentro del cuerpo de la tabla */}
     
 </tbody>
