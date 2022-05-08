@@ -7,7 +7,8 @@ function Home(){
         <h1 className="p-2">HOME</h1>
         <div className="d-flex justify-content-center">
         
-        <iframe frameborder="0" src="https://itch.io/embed-upload/5726298?color=333333" allowfullscreen="" width="640" height="380"><a href="https://jaiovi.itch.io/denso-minijuegos">Play Denso Minijuegos on itch.io</a></iframe>
+        <iframe width="552" height="167" frameborder="0" src="https://itch.io/embed/1520243"><a href="https://a01411625.itch.io/my-opportunity-at-denso">Play Denso Minijuegos on itch.io</a></iframe>
+        {/* <iframe frameborder="0" src="https://itch.io/embed-upload/5726298?color=333333" allowfullscreen="" width="640" height="380"><a href="https://jaiovi.itch.io/denso-minijuegos">Play Denso Minijuegos on itch.io</a></iframe> */}
         </div>
         <div className="d-flex justify-content-center m-4">
         
