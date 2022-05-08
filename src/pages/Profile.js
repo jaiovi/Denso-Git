@@ -13,7 +13,7 @@ function Profile(){
 
     //INICIO CABECERA
     const params = useParams(); //recuperar id del usuario
-
+//Se usa varios useState para que tengan permiso de poder trasladar la información
     const [data, setData] = useState(null);
     const [dataPsico, setDataPsico] = useState(null);
     const [dataMini, setDataMini] = useState(null);
@@ -36,16 +36,16 @@ function Profile(){
     },[]);
     */
    
-    useEffect(()=>{
-        API.get("/candidato/"+params.userId,(response)=>{
+    useEffect(()=>{ // Pide el nombre del usario
+        API.get("/candidato/"+params.userId,(response)=>{ 
             setData(response);
             if(response.message=="Candidato no existe o es admin")
                 setMessage(response.message);
         })
-        API.get("/user/"+params.userId+"/minigame",(response)=>{
+        API.get("/user/"+params.userId+"/minigame",(response)=>{ //Pide la informacion del videojuego
             setDataMini(response);
         })
-        API.get("/user/"+params.userId+"/psicometrico",(response)=>{
+        API.get("/user/"+params.userId+"/psicometrico",(response)=>{ //Pide informacion de los tests psicometricos
             setDataPsico(response);
         })
     },[]);
@@ -86,7 +86,7 @@ function Profile(){
 
     //render(){
     //const { data } = this.state;
-    return(
+    return( //Muestra los datos de puntaje de los minijuegos en graficas 
     <div className="container m-4 mx-auto">
         <div className="row">
             <div className="col-sm">
@@ -122,7 +122,7 @@ function Profile(){
             </div>
         </div>
 
-        <div id={"ConfirmaDelete"} className="d-flex justify-content-center">
+        <div id={"ConfirmaDelete"} className="d-flex justify-content-center"> {/* Boton para eliminar la cuenta y datos del participante mismo */}
             <Button onClick={functionToggle}>Eliminar Cuenta</Button>
             {show ? <>
             <Button color={"danger"} onClick={deleteUser}>Confirmo eliminar todos mis datos</Button>
@@ -130,7 +130,7 @@ function Profile(){
             }
             
         </div>
-        <div className="d-flex m-4 justify-content-center">
+        <div className="d-flex m-4 justify-content-center"> {/* Boton que reinicia los datos de los puntajes de minijuegos y del test psicometrico */}
             <Button color={"success"} onClick={ ()=>toggle2(!show)}>Reiniciar tests</Button>
             {show2 ? <>
             <Button color={"danger"} onClick={deleteTests}>Confirmo eliminar psicometrico+minijuegos</Button>
@@ -139,7 +139,7 @@ function Profile(){
         </div>
         <div className="text-danger">{message ? message:null}</div>
         <p>
-            <i className="d-flex justify-content-center m-2">En caso que aparezca página en blanco y está corriendo el server: la id es de un manager y no un candidato</i>
+            <i className="d-flex justify-content-center m-2">En caso que aparezca página en blanco y está corriendo el server: la id es de un manager y no un candidato</i>{/* Contramedida por si el id sea el de un manager */}
         </p>
     </div>
     )
